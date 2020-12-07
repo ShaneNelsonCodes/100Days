@@ -1,11 +1,10 @@
 import os
 import random
-import importlib
-hangman_words = importlib.import_module("Day7 - Hangman_Words")
-hangman_art = importlib.import_module("Day7 - Hangman_Art")
+import Day7_Hangman_Words
+import Day7_Hangman_Art
 
 #TODO-1: - Update the word list to use the 'word_list' from hangman_words.py
-word_list = hangman_words.word_list
+word_list = Day7_Hangman_Words.word_list
 chosen_word = random.choice(word_list)
 word_length = len(chosen_word)
 
@@ -13,7 +12,7 @@ end_of_game = False
 lives = 6
 
 #TODO-3: - Import the logo from hangman_art.py and print it at the start of the game.
-logo = hangman_art.logo
+logo = Day7_Hangman_Art.logo
 print(logo)
 
 #Testing code
@@ -61,5 +60,5 @@ while not end_of_game:
         print("You win.")
 
     #TODO-2: - Import the stages from hangman_art.py and make this error go away.
-    stages = hangman_art.stages
+    stages = Day7_Hangman_Art.stages
     print(stages[lives])
