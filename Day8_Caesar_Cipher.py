@@ -1,5 +1,3 @@
-
-
 alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
 
 def caesar(start_text, shift_amount, cipher_direction):
@@ -29,15 +27,18 @@ print(logo)
 #e.g. Type 'yes' if you want to go again. Otherwise type 'no'.
 #If they type 'yes' then ask them for the direction/text/shift again and call the caesar() function again?
 #Hint: Try creating a new function that calls itself if they type 'yes'. 
-
-direction = input("Type 'encode' to encrypt, type 'decode' to decrypt:\n")
-text = input("Type your message:\n").lower()
-shift = int(input("Type the shift number:\n"))
+should_continue = True
+while should_continue == True:
+  direction = input("Type 'encode' to encrypt, type 'decode' to decrypt:\n")
+  text = input("Type your message:\n").lower()
+  shift = int(input("Type the shift number:\n"))
 
 #TODO-2: What if the user enters a shift that is greater than the number of letters in the alphabet?
 #Try running the program and entering a shift number of 45.
 #Hint: Think about how you can use the modulus (%).
-shift = shift % 26
-
-
-caesar(start_text=text, shift_amount=shift, cipher_direction=direction)
+  shift = shift % 25
+  caesar(start_text=text, shift_amount=shift, cipher_direction=direction)
+  result = input("Type 'yes' if you want to go again. Otherwise type 'no'.\n").lower()
+  if result == 'no':
+    should_continue = False
+    print("Goodbye") 
